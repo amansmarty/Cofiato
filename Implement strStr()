@@ -1,0 +1,24 @@
+function strStr(haystack: string, needle: string): number {
+    
+    var x = needle.length;
+    var y = haystack.length;
+    var res=-1;
+    if(x>y){
+        return -1;
+    }
+    var j=0;
+    for(var i = 0; i<y; i++){
+        if(haystack[i]==needle[j]){
+            j++;
+            if(res==-1) res=i;
+        }
+        else if(j>0){
+            j=0;
+            i=res;
+            res=-1;
+        }
+        if(x==j)break;
+    }
+    if(j==x) return res;
+    else return -1;
+};
