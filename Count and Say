@@ -1,0 +1,14 @@
+function countAndSay(n: number): string {
+    if(n==1) return "1";
+    var res = "";
+    var count=0;
+    var s=countAndSay(n-1);
+    for(var i=0;i<s.length;i++){
+        count++;
+        if(i==s.length-1 || s.charAt(i)!=s.charAt(i+1)){
+            res=res+count+s.charAt(i);
+            count=0;
+        }
+    }
+    return res;
+};
